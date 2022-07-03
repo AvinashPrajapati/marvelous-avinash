@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block linkInHead %}
+<link rel="stylesheet" href="{% static 'chat/css/suscribe.css' %}">
+{% endblock linkInHead %}
+
+{% block body %}
+
+            <div class="nav-box common">
+              <div class="next">
+                <p style="font-weight:bold;">Subscription of Email ...</p>
+              </div>
+                
+            </div>
+
+            <div class="content-box common">
+                <div class="left-box">
+                  <div class="form">
+                    <form action="#" method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <div class="name button">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name">
+                      </div>
+                      <div class="email button">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email">
+                      </div>
+                      <div class="email button">
+                        <label for="avatar">Email</label>
+                        <input type="file" name="avatar" id="avatar"  accept="image/*" style="max-width: 190px;color:#fff;"/>
+                      </div>
+                      <div class="button">
+                        <a href="#" class="btn" style="background-color: orange;">Cancel</a>
+                        <button type="submit" class="btn" style="background-color: greenyellow;">Proceed</button>
+                      </div>
+                    </form>
+                  </div>
+                  
+                  <div class="errors">
+                    {% if messages %}
+                      {% for message in messages %}
+                      <p {% if message.tags %} class="{{ message.tags }}" {% endif %}
+                        style="font-size: small;font-weight: bold;">{{ message }}</p>
+                      {% endfor %}
+                    {% endif %}
+                  </div>
+    
+                </div>
+            </div>
+
+{% endblock body %}

@@ -1,0 +1,164 @@
+:root{
+    --greenyellow:greenyellow;
+    --light-greenyellow:#adff45;
+    --dark-purple:#c704ea;
+}
+.touch-content-box{
+    width: 90%;
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 10;
+}
+.touch-content-box .boxes{
+    display: flex;
+    flex-direction: row;
+    column-gap: 25px;
+    justify-content: center;
+}
+.touch-left-box{
+    /* background-color: steelblue; */
+    width: 60%;
+}
+.touch-left-box table{
+    border-spacing: 10px;
+    border-radius: 3px;
+    border: 1px solid var(--greenyellow);
+    position: relative;
+    width: 100%;
+}
+.touch-left-box tbody tr th{
+    vertical-align: top !important;
+    color: var(--light-greenyellow);
+}
+.touch-left-box tbody tr td{
+    word-break: break-all;
+    color: #ffffff;
+}
+
+.touch-right-box{
+    display: flex;
+    border-radius: 3px;
+    flex-direction: column;
+    border: 1px solid var(--greenyellow);
+}
+.touch-right-box .tonation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 5px;
+    position: relative;
+    padding-top: 15px;
+}
+.method-international a, .method-home a{
+    padding: 5px; background-color:var(--dark-purple);border-radius:5px; margin-top:10px;width:fit-content;
+}
+.method-international, .cmm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    padding: 10px;
+}
+.method-upi img{
+    max-width: 220px;
+}
+
+.social{
+    padding: 10px;
+    margin-top: 50px;
+    border-radius: 3px;
+    border: 1px solid var(--greenyellow);
+    position: relative;padding-top: 25px;
+}
+.social-handle{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+.social p{
+    margin-bottom: 20px;
+    padding-left: 3px;
+    font-size: 18px;
+}
+.social-handle a{
+    font-size: 45px;
+    padding: 2px 10px;
+    border-radius: 5px;
+    margin: 0;
+}
+
+
+
+.touch-left-box table tbody::before{
+    content: 'Personal Info.';
+    position: absolute;
+    top: -20px;
+    left: 0px;
+    font-size: 20px;
+    padding: 3px 6px;
+    border-radius: 5px;
+    background-color: var(--greenyellow);
+}
+.social::before{
+    content: 'Social handles';
+    position: absolute;
+    top: -20px;
+    left: 0px;
+    font-size: 20px;
+    padding: 3px 6px;
+    border-radius: 5px;
+    background-color: var(--greenyellow);
+}
+.tonation::before{
+    content: 'Donation';
+    position: absolute;
+    top: -20px;
+    left: 0px;
+    font-size: 20px;
+    padding: 3px 6px;
+    border-radius: 5px;
+    background-color: var(--greenyellow);
+}
+
+
+
+@media(max-width:768px){
+    .touch-content-box .boxes{
+        display: flex;
+        flex-direction: column;
+        row-gap: 25px;
+        justify-content: center;
+    }
+    .touch-left-box{
+        width: 100%;
+    }
+    .social{
+        margin-bottom: 25px;
+    }
+    .touch-right-box .tonation{
+        width: 95%;
+        flex-direction: row-reverse !important;
+        justify-content: space-between;
+    }
+    .tonation .third-party{
+        display: flex;
+        flex-direction: column;
+        row-gap: 25px;
+        justify-content: start;
+        align-items: center;
+    }
+}
+@media(max-width:500px){
+    .touch-right-box .tonation{
+        flex-direction: column !important;
+        width: 96%;
+    }
+    .tonation img{
+        width: 100%;
+    }
+}

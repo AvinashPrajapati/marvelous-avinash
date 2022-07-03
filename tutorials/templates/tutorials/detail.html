@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block linkInHead %}
+<link rel="stylesheet" href="{% static 'tutorials/css/detail.css' %}">
+<link rel="stylesheet" href="{% static 'chat/css/chat.css' %}">
+{% endblock linkInHead %}
+
+{% block body %}
+
+              <div class="nav-box common">
+                <div class="next" >
+                  <p>Series - <a href="{{tut.series_name.get_absolute_url}}" style="color: greenyellow;">{{tut.series_name}}</a></p>
+                </div>
+              </div>
+
+              <div class="content-box common">
+                <div class="left-box lbox">
+                  <div class="content">
+                    <div class="content-header">
+                        <h1 class="title">{{tut.title}}</h1>
+                        <p>Updated on: <span>{{tut.updated |date:"M d, Y"}}</span></p>
+                        <p>Posted on: <span>{{tut.created |date:"M d, Y"}}</span></p>
+                      </div>
+
+                    <span class="des">{{tut.Description}}</span>
+
+                    <div class="content-img">
+                      <img src="{{tut.poster.url}}" alt="">
+                    </div>
+
+                    <div class="material" style="word-break:break-word;color: white !important; font-size: 14px;line-height: 22px;">
+                      {{tut.content | safe}}
+                    </div>
+
+                  </div>
+
+                  <div class="chat-section">
+                    <h2>Discussion goes here ...</h2>
+                    <div class="messages">
+                      <div class="spacing" id="chat-messages">
+
+                        {% for message in message_list%}
+                        <div class="chat">
+                            <div class="sender flex design">
+                              <img src="{{message.user.avatar.url}}" alt="xyz" style="width: 40px;height:40px;border-radius:50%;">
+                              <div class="message">
+                                <p class="msg">
+                                  {{message.content}}</p>
+                                <p class="posted-by">
+                                  - On <span style="font-size: 10px; font-weight:bold;">{{message.date_added |date:"M d, Y"}}</span>, By :<span style="font-size: 10px; font-weight:bold;">{{message.user.name}}</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        {% endfor%}
+
+                      </div>
+                    </div>
+
+                    <div class="errors" style="margin-top: 15px; margin-bottom:10px;">
+                      {% if messages %}
+                        {% for message in messages %}
+                        <p {% if message.tags %} class="{{ message.tags }}"{% endif %} style="font-size: small;font-weight: bold;">{{ message }}</p>
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+
+                    <form action="." method="post">
+                      <div class="msg-form">
+                        <div class="input-msg">
+                          <textarea name="message" id="chat-message-input" rows="5" placeholder="Your message ..."></textarea>
+                          <input type="text" name="token" id="chat-message-input-token" placeholder="Your Unique Token ...(sus">
+                        </div>
+                        <button type="submit" class="btn" id="chat-message-submit" style="background-color: greenyellow;color:#000;">Send</button>
+                        <a href="{% url 'chat:subscribe' %}" class="btn" style="float: left; margin-top: 5px; background-color: orange !important;">Subscribe</a>
+                      </div>
+                    </form>
+
+                  </div>
+
+                </div>
+                
+                <div class="right-box">
+                  <div class="box-one menu-icon">
+                      <input type="checkbox" name="check-menu" id="check-menu" hidden>
+                      <label for="check-menu" class="lbl">⬇</label>
+                      <div class="box-two cmn">
+
+                        <div class="tag-list">
+                          {% for tag in tut.tags.all %}
+                              <a href="{{tag.get_absolute_url}}" class="btn">{{tag.tagName}}</a>
+                          {% endfor %}
+                        </div>
+                        <div class="series-list">
+                          {% for series in allseries %}
+                              <a href="{{series.get_absolute_url}}" class="btn">{{series.name}}</a>
+                          {% endfor %}
+                        </div>
+
+                        <div class="ads">
+                          
+                        </div>
+
+                      </div>
+                      </div>
+                </div>
+
+              </div>
+
+{% endblock body %}
+{% block jsScript %}
+{{tut.url|json_script:"json-roomname"}}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  setInterval("my_function();", 3500);
+
+    function my_function() {
+      $('#chat-messages').load(location.href + ' #chat-messages');
+    };
+</script>
+
+
+
+<script>
+  const roomName = JSON.parse(document.getElementById('json-roomname').textContent);
+  var myDate = new Date();
+  // let daysList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  let monthsList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Aug', 'Oct', 'Nov', 'Dec'];
+  let date = myDate.getDate();
+  let month = monthsList[myDate.getMonth()];
+  let year = myDate.getFullYear();
+  // let day = daysList[myDate.getDay()];
+  let today = `${month} ${date}, ${year}`;
+  
+  const chatSocket = new WebSocket(
+    'ws://'
+    + window.location.host
+    + '/ws/'
+    + roomName
+    + '/'
+  );
+  // chatSocket.onmessage = function (e) {
+  //   console.log('onmessage');
+  //   const data = JSON.parse(e.data);
+  //   if (data.message) {
+  //     let html = '<div class="chat"><div div class="sender flex design" ><img src="../navbar/images/profile_id.png" alt="xyz"><div class="message"><p class="msg">'+data.message+' </p><p class="posted-by">- On '+today+'</p></div></div></div > ';
+  
+  //     document.querySelector('#chat-messages').innerHTML += html;
+  
+  //   } else {
+  //     alert('The message was Empty')
+  //   }
+  // };
+  chatSocket.onclose = function (e) {
+    console.log('onclose');
+  };
+  
+  document.querySelector("#chat-message-submit").onclick = function (e) {
+    e.preventDefault();
+  
+    const messageInputDom = document.querySelector('#chat-message-input');
+    const tokenInputDom = document.querySelector('#chat-message-input-token');
+  
+    const message = messageInputDom.value;
+    const token = tokenInputDom.value;
+  
+    chatSocket.send(JSON.stringify({
+      'message': message,
+      'token': token,
+      'room': roomName,
+    }));
+  
+    messageInputDom.value = "";
+    return false;
+  }
+</script>
+{% endblock jsScript %}

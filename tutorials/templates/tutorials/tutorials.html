@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block linkInHead %}
+<link rel="stylesheet" href="{% static 'tutorials/css/tutorials.css' %}">
+{% endblock linkInHead %}
+
+{% block body %}
+
+            <div class="nav-box common">
+              <div class="next">
+                <p>Available Posts in '{{ url | capfirst}}'</p>
+              </div>
+            </div>
+            
+            <div class="content-box common">
+                <div class="left-box">
+                  {% for tut in tutList %}
+                    <div class="post">
+                      <div class="post-img">
+                        <img src="{{tut.poster.url}}" alt="">
+                      </div>
+
+                      <div class="post-info">
+                        <a class="title" href="{{tut.get_absolute_url}}">{{tut.title}}</a>
+                        <div class="date">
+                          <p class="updated">Updated: <span> {{tut.updated |date:"M d, Y"}}</span></p>
+                          <p class="created">Created: <span> {{tut.created |naturalday | capfirst }}</span></p>
+                        </div>
+                        <a href="{{tut.get_absolute_url}}" class="get-in btn">Let's see ...</a>
+                      </div>
+                    </div>
+                  {% endfor %}
+
+                  <div class="post">
+                    <div class="post-img">
+                      <img src="rect16.png" alt="">
+                    </div>
+
+                    <div class="post-info">
+                      <p class="title">This is th titlte of this post and it is very awesome</p>
+                      <div class="date">
+                        <p class="created">created: <span> july 15, 2022</span></p>
+                        <p class="updated">updated: <span> july 15, 2022</span></p>
+                      </div>
+                      <a href="#" class="get-in btn">What can be ...</a>
+                    </div>
+                  </div>
+
+                  <div class="post">
+                    <div class="post-img">
+                      <img src="rect16.png" alt="">
+                    </div>
+
+                    <div class="post-info">
+                      <p class="title">This is th titlte of this post and it is very awesome</p>
+                      <div class="date">
+                        <p class="created">created: <span> july 15, 2022</span></p>
+                        <p class="updated">updated: <span> july 15, 2022</span></p>
+                      </div>
+                      <a href="#" class="get-in btn">What can be ...</a>
+                    </div>
+                  </div>
+
+                  <div class="post">
+                    <div class="post-img">
+                      <img src="rect16.png" alt="">
+                    </div>
+
+                    <div class="post-info">
+                      <p class="title">This is th titlte of this post and it is very awesome</p>
+                      <div class="date">
+                        <p class="created">created: <span> july 15, 2022</span></p>
+                        <p class="updated">updated: <span> july 15, 2022</span></p>
+                      </div>
+                      <a href="#" class="get-in btn">What can be ...</a>
+                    </div>
+                  </div>
+                  
+                  <div class="next">
+                    
+                    <div class="pagination">
+                      <span class="step-links"  style="display: flex; flex-direction: row; column-gap: 15px;">
+                          {% if tutList.has_previous %}
+                              <a href="?page=1" style="color: greenyellow;">&laquo;first</a>
+                              <a href="?page={{ tutList.previous_page_number }}" style="color: orange;">previous</a>
+                          {% endif %}
+                  
+                          <span class="current">
+                              Page <i style="color: greenyellow;font-weight: bold;">{{ tutList.number }}</i> of <i style="color: orange;">{{ tutList.paginator.num_pages }}</i>.
+                          </span>
+                  
+                          {% if tutList.has_next %}
+                              <a href="?page={{ tutList.next_page_number }}" style="color: greenyellow;">next</a>
+                              <a href="?page={{ tutList.paginator.num_pages }}" style="color: orange;">last&raquo;</a>
+                          {% endif %}
+                      </span>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="right-box">
+                  <div class="box-one menu-icon">
+                      <input type="checkbox" name="check-menu" id="check-menu" hidden>
+                      <label for="check-menu" class="lbl">⬇</label>
+                      <div class="box-two cmn">
+
+                        <div class="tag-list">
+                          {% for tag in alltags %}
+                              <a href="{{tag.get_absolute_url}}" class="btn">{{tag.tagName}}</a>
+                          {% endfor %}
+                        </div>
+                        <div class="series-list">
+                          {% for series in allseries %}
+                              <a href="{{series.get_absolute_url}}" class="btn">{{series.name}}</a>
+                          {% endfor %}
+                        </div>
+
+                        <div class="ads">
+                          
+                        </div>
+
+                        </div>
+                      </div>
+                  </div>
+
+            </div>
+
+
+{% endblock body %}

@@ -1,0 +1,129 @@
+.chat-section {
+    width: 99%;
+    margin: 20px auto;
+    z-index: 5;
+}
+
+.chat-section h2 {
+    margin-bottom: 15px;
+}
+
+.messages {
+
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: rgb(34, 3, 37);
+    padding: 15px 20px 15px 10px;
+    border-radius: 5px;
+}
+
+.spacing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.messages .chat {
+    max-width: 400px;
+    width: fit-content;
+    position: relative;
+    margin: 30px auto;
+}
+
+.messages .chat img {
+    position: absolute;
+    top: -20px;
+    left: 42%;
+}
+
+.messages .message {
+    padding-top: 10px;
+}
+
+.messages .message .msg {
+    background: darkblue;
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.messages .message .posted-by {
+    width: fit-content;
+    float: right;
+}
+
+.msg-form {
+}
+
+.msg-form .input-msg {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.input-msg textarea {
+    resize: none;
+    overflow-y: scroll;
+    border: none;
+    outline: none;
+    padding: 5px;
+    border: 1px solid rgb(214, 117, 117);
+}
+
+.input-msg input {
+    border: none;
+    outline: none;
+    box-shadow: inset 0px 0px 0px 5px rgb(218, 92, 92);
+    padding: 10px;
+}
+
+.msg-form button {
+    float: right;
+    margin-top: 5px;
+}
+.msg-form button:hover{
+    cursor: pointer;
+}
+
+.messages::-webkit-scrollbar {
+    width: 10px;
+  }
+
+/* Track */
+.messages::-webkit-scrollbar-track {
+background: #f1f1f1; 
+}
+
+/* Handle */
+.messages::-webkit-scrollbar-thumb {
+background: #c704ea; 
+}
+
+/* Handle on hover */
+.messages::-webkit-scrollbar-thumb:hover {
+background: #555; 
+}
+
+
+
+.input-msg textarea::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.input-msg textarea::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.input-msg textarea::-webkit-scrollbar-thumb {
+    background: #c704ea;
+}
+
+/* Handle on hover */
+.input-msg textarea::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

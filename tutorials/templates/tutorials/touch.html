@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block linkInHead %}
+<link rel="stylesheet" href="{% static 'tutorials/css/touch.css' %}">
+<link rel="stylesheet" href="{% static 'tutorials/css/detail.css' %}">
+{% endblock linkInHead %}
+
+{% block body %}
+            <div class="touch-content-box">
+              <div class="boxes">
+                  <div class="touch-left-box">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <th align="left">Name: </th>
+                          <td>Avinash Kumar prajapati</td>
+                        </tr>
+                        <tr>
+                          <th align="left">Email: </th>
+                          <td>aviavi61106@gmial.com -> <a target="_blank"href="mailto: aviavi61106@gmial.com" style="font-size: 18px;font-style: italic;">📧</a> </td>
+                        </tr>
+                        <tr>
+                          <th align="left">Address: </th>
+                          <td>Prayagraj, Uttar Pradesh, India</td>
+                        </tr>
+                        <tr>
+                          <th align="left">Mobile no:</th>
+                          <td>+91 992######9</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="social">
+                      <div class="social-handle">
+                        <a href="#"><i class="fa fa-instagram" aria-hidden="true" style="color: rgb(239, 93, 175);"></i></a>
+                        <a href="#"><i class="fa fa-twitter" aria-hidden="true" style="color: rgb(101, 224, 255);"></i></a>
+                        <a href="#"><i class="fa fa-facebook-official" aria-hidden="true" style="color: rgb(80, 80, 255);"></i></a>
+                        <a href="#"><i class="fa fa-youtube-square" aria-hidden="true" style="color: rgb(255, 50, 50);"></i></a>
+                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true" style="color: rgb(50, 68, 114);"></i></a>
+                        <a href="#"><i class="fa fa-telegram" aria-hidden="true" style="color: rgb(86, 86, 253);"></i></a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="touch-right-box">
+                    <div class="tonation">
+                      <div class="third-party">
+
+                        <div class="method-international">
+                          <p>Recieve the Payment on Paypal</p>
+                          <a>Paypal @ avinash551</a>
+                        </div>
+
+                        <div class="method-home cmm">
+                          <p>Recieve the Payment on Paypal</p>
+                          <a href="#">Instamojo</a>
+                        </div>
+
+                      </div>
+
+                        <div class="method-upi cmm">
+                          <p>UPI as for India.</p>
+
+                          <img src="{% static 'tutorials/img/upi.jpg' %}" alt="logo">
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+{% endblock body %}

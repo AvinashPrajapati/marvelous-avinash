@@ -1,0 +1,174 @@
+:root{
+    --z-index-10:10;
+    --orange:orange;
+    --greenyellow:#adff45;
+}
+
+.portfolio-box .inner-box{
+    width: 93%;
+    margin: 30px auto;
+    padding: 8px;
+    /* background-color: rgb(212, 31, 236); */
+    z-index: var(--z-index-10);
+    position: relative;
+}
+.portfolio-box .intro-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.cmmn{
+    width: 90%;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-bottom: 60px;
+    border: 1px solid #adff45;
+}
+.intro-box{
+    background-color: transparent !important;
+    border: none;
+}
+
+.owner-img img{
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    border: 10px solid var(--greenyellow);
+}
+.owner-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    row-gap: 10px;
+    flex-wrap: wrap;
+}
+.owner-info h2{
+    font-size: 35px;
+    color: var(--greenyellow);
+    text-align: center;
+}
+.owner-info span{
+    font-size: 24px;
+}
+.owner-info p{
+    font-size: 16px;
+}
+
+
+.education{
+    margin-top: 80px;
+}
+
+.tab-content{
+    position: relative;
+}
+.timeline-item{
+    margin-bottom: 30px;
+    position: relative;
+    padding: 10px 0 0 40px;
+}
+.timeline-item .date{
+    display: block;
+    color: #ffffff;
+    font-weight: 400;
+    margin: 0 0 10px;
+}
+.skill .skill-item{
+    font-size: 18px;
+    font-weight: bold;
+    color: orange;
+}
+.timeline-item h4{
+    font-size: 18px;
+    text-transform: capitalize;
+    margin: 0 0 10px;
+    color: var(--greenyellow);
+}
+.timeline-item h4 span{
+    font-weight: 400;
+}
+.skill::before{
+    content: 'Skill Sets';
+    position: absolute;
+    top: -30px;
+    left: 0px;
+    font-size: 20px;
+    padding: 3px 6px;
+    border-radius: 5px;
+    background-color: var(--greenyellow);
+}
+.edu::before{
+    content: 'Education';
+    position: absolute;
+    top: -30px;
+    left: 0px;
+    font-size: 20px;
+    padding: 3px 6px;
+    border-radius: 5px;
+    background-color: var(--greenyellow);
+}
+.exp::before{
+    content: 'Work Experience';
+    position: absolute;
+    top: -30px;
+    left: 0px;
+    font-size: 20px;
+    padding: 3px 6px;
+    border-radius: 5px;
+    background-color: var(--greenyellow);
+}
+.project::before{
+    content: 'Projects';
+    position: absolute;
+    top: -30px;
+    left: 0px;
+    font-size: 20px;
+    padding: 3px 6px;
+    border-radius: 5px;
+    background-color: var(--greenyellow);
+}
+.project-item a{
+    color: #ffffff;
+    transition: all 0.3s ease-in-out;
+}
+.project-item a:hover{
+    color: var(--greenyellow);
+    padding-left: 5px;
+}
+.timeline::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    top: 20px;
+    left: 7px;
+    background-color: var(--greenyellow);
+}
+.timeline-item::before{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background-color: var(--greenyellow);
+    left: 0;
+    top: 12px;
+    border-radius: 50%;
+}
+
+@media(max-width:768px){
+    .portfolio-box .intro-box{
+        flex-direction: column;
+    }
+    .owner-info{
+        align-items: center;
+    }
+}
+
+
+
+
+

@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block linkInHead %}
+<link rel="stylesheet" href="{% static 'css/portfolio.css' %}">
+<link rel="stylesheet" href="{% static 'tutorials/css/detail.css' %}">
+{% endblock linkInHead %}
+
+{% block body %}
+            
+            <div class="portfolio-box">
+                <div class="inner-box">
+
+                  <div class="intro-box cmmn">
+                    <div class="owner-img">
+                      <img src="{% static 'img/logo.jpg' %}" alt="Portfolio-img">
+                    </div>
+                    <div class="owner-info">
+                      <h2>Avinash Prajapati</h2>
+                      <span>Web developer<p>Fontend/Backend</p></span>
+                      
+                      <p>Hi, there</p>
+                      <a href="#" class="btn" >Download Resume</a>
+                    </div>
+                  </div>
+
+                  <div class="skill-set cmmn">
+                    <div class="tab-content skill" id="slill-set">
+                      <div class="timeline">
+
+                        <div class="timeline-item skill-timeline-item">
+                          <span class="date skill-item">Python</span>
+                          <p style="margin-bottom: 10px;">Level - <a>Advanced</a></p>
+                          <p>Sources - 
+                            <a  target="_blank" href="https://www.w3schools.com/python/default.asp" style="color: greenyellow;">W3School</a> |
+                            <a target="_blank" href="https://www.youtube.com/watch?v=jdXXA5l3KzE&list=PLbGui_ZYuhijd1hUF2VWiKt8FHNBa7kGb" style="color: greenyellow;">GeekyShows - youtube</a> |
+                          </p>
+                          <p style="margin-top: 8px;">Others learnings -
+                            <span>
+                              <b>socket </b>(Intermediate) | 
+                              <b>Numpy </b>(basic) | 
+                              <b>Matplotlib </b>(basic) |
+                              <b>OpenCV </b>(basic) |
+                            </span>
+                          </p>
+                        </div>
+
+                        <div class="timeline-item skill-timeline-item">
+                          <span class="date skill-item">Django ( python web framework )</span>
+                          <p style="margin-bottom: 10px;">Level - <a>Advanced</a></p>
+                          <p>Sources - 
+                            <a target="_blank" href="https://www.youtube.com/c/CodingEntrepreneurs" style="color: greenyellow;">CodingEntrepreneurs - youtube</a> | 
+                            <a target="_blank" href="https://www.youtube.com/c/Pyplane"style="color: greenyellow;">Pyplane - youtube</a> |
+                          </p>
+                          <p style="margin-top: 8px;">Others learnings -
+                            <span><b>django-channels </b>(advanced) | <b>django-allauth </b>(advanced) | <b>redis </b>(basic) |</span>
+                          </p>
+                        </div>
+                        <div class="timeline-item skill-timeline-item">
+                          <span class="date skill-item">Django Rest Framework ( DRF )</span>
+                          <p style="margin-bottom: 10px;">Level - <a>Intermediate</a></p>
+                          <p>Sources - 
+                            <a target="_blank" href="https://www.youtube.com/watch?v=c708Nf0cHrs" style="color: greenyellow;">CodingEntrepreneurs - youtube</a> |
+                            <a target="_blank" href="https://www.youtube.com/watch?v=qXXC6ocTC80&list=PLbGui_ZYuhijTKyrlu-0g5GcP9nUp_HlN" style="color: greenyellow;">GeekyShows (DRF) - youtube</a> |</p>
+                        </div>
+                          <div class="timeline-item skill-timeline-item">
+                              <span class="date skill-item">Html, CSS</span>
+                              <p style="margin-bottom: 10px;">Level - <a>Advanced</a></p>
+                              <p>Sources - <a  target="_blank" href="https://www.w3schools.com/html/default.asp" style="color: greenyellow;">W3School </a>(HTML) | <a target="_blank" href="https://www.w3schools.com/css/default.asp" style="color: greenyellow;">W3School</a>(CSS) |</p>
+                          </div>
+                          <!-- <div class="timeline-item skill-timeline-item">
+                            <span class="date skill-item">CSS</span>
+                            <p style="margin-bottom: 10px;">Level - <a>Advanced</a></p>
+                            <p>Sources - </p>
+                          </div> -->
+                          <div class="timeline-item skill-timeline-item">
+                            <span class="date skill-item">JavaScripts</span>
+                            <p style="margin-bottom: 10px;">Level - <a>Intermediate</a></p>
+                            <p>Sources - <a  target="_blank" href="https://www.w3schools.com/js/default.asp" style="color: greenyellow;">W3School</a> |</p>
+                          </div>
+
+                          <div class="timeline-item skill-timeline-item">
+                            <span class="date skill-item">MySQL</span>
+                            <p style="margin-bottom: 10px;">Level - <a>Intermediate</a></p>
+                            <p>Sources - <a  target="_blank" href="https://www.w3schools.com/mysql/default.asp" style="color: greenyellow;">W3School</a> |</p>
+                          </div>
+                          <!-- <div class="timeline-item skill-timeline-item">
+                            <span class="date skill-item">OpenCV, Numpy, Matplotlib</span>
+                            <p style="margin-bottom: 10px;">Level - <a>Basic</a></p>
+                            <p>Sources - 
+                              <a  target="_blank" href="https://www.youtube.com/c/MurtazasWorkshopRoboticsandAI" style="color: greenyellow">Murtaza's Workshop ( OpenCV ) - youtube</a> |
+                              <a target="_blank" href="https://www.youtube.com/watch?v=yZTBMMdPOww" style="color: greenyellow">Edureka ( matplotlib )- youtube</a> |
+                              <a target="_blank" href="https://www.youtube.com/watch?v=QUT1VHiLmmI" style="color: greenyellow">freeCodeCamp.org (Numpy )- youtube</a> |
+                            </p>
+                          </div> -->
+
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="education cmmn">
+                    <div class="tab-content edu" id="education">
+                      <div class="timeline">
+                          <div class="timeline-item">
+                              <span class="date">2016 - 2017</span>
+                              <h4>10th -> 95%</h4>
+                              <p>Vigyan Sanjivani Central College - Prayagraj, Kodhun, Uttar Pradesh, India</p>
+                          </div>
+                          <div class="timeline-item">
+                              <span class="date">2017 - 2018</span>
+                              <h4>12th -> 82%</h4>
+                              <p>Vigyan Sanjivani Central College - Prayagraj, Kodhun, Uttar Pradesh, India</p>
+                          </div>
+                          <div class="timeline-item">
+                              <span class="date">2019 - 2023</span>
+                              <h4>Currently Pursuing - final year</h4>
+                              <p>Bundelkhand Institute of Engineering and Technology - Jhansi, Uttar Pradesh, India</p>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="work-exp cmmn">
+                    <div class="tab-content exp" id="experience">
+                      <div class="timeline">
+                          <div class="timeline-item">
+                              <span class="date">2020 - 2021, 2 month project</span>
+                              <h4>Web Devloper ( Full Stack )<span> - a <b style="color: orange;">Django</b> application.</span></h4>
+                              <p style="line-height: 20px;">
+                                This is a django application in which you can <u>write post</u> , <u>follow the author</u>, <u>block the follower</u>, <u>advanced comment system</u> and many more features with <u><b><a target="_blank" href="https://neumorphism.io/#e0e0e0">neumorphism</a></b></u> design.
+                              </p>
+                              <p style="margin-top:10px;">View project - <a target="_blank" href="https://myproject1.pythonanywhere.com/" style="color: orange;">wandoc</a> .</p>
+                          </div>
+                          <div class="timeline-item">
+                              <span class="date">2021 - 2022, 1.5 month project</span>
+                              <h4>Web Devloper ( Full Stack ) <span> - a <b style="color: orange;">Django-channels</b> application</span></h4>
+                              <p  style="line-height: 20px;">
+                                This is a django application in which the main feature is that <u><b><a target="_blank" href="https://channels.readthedocs.io/">django-channels</a></b></u> has been used for comment system with modern verification system.
+                              </p>
+
+                              <p style="margin-top:10px;">View project - <a target="_blank" href="#" style="color: orange;">portfolio</a> .</p>
+                          </div>
+
+                          <!-- <div class="timeline-item">
+                              <span class="date">2013 - 2016</span>
+                              <h4>web devloper <span>the vorldmot</span></h4>
+                              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius natus exercitationem fuga unde rem impedit.</p>
+                          </div> -->
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="projects cmmn">
+                    <div class="tab-content project" id="projects">
+                      <div class="timeline">
+                        <div class="timeline-item project-item">
+                            <a href="{% url 'tutorials:listpage' list_url='project' %}"><span style="color: orange;">Visit here </span> to view all projects ...</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+            </div>
+
+{% endblock body %}

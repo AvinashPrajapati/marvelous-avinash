@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block linkInHead %}
+<link rel="stylesheet" href="{% static 'tutorials/css/search-query.css' %}">
+{% endblock linkInHead %}
+
+{% block body %}
+
+            <div class="nav-box common">
+              <div class="next">
+                <a>Tuts till now in '{{seriesName}}'  </a>
+              </div>
+                
+            </div>
+            <div class="search-content-box">
+                <div class="left-box">
+                  {% for item in tutBySeriesName %}
+                    <div class="post">
+                      <div class="post-img">
+                        <img src="{{item.poster.url}}" alt="dfd">
+                      </div>
+
+                      <div class="post-info">
+                        <a class="title" href="{{item.get_absolute_url}}">{{item.title}}</a>
+                        <div class="date">
+                          <p class="updated">Updated: <span> {{item.updated |date:"M d, Y"}}</span></p>
+                          <p class="created">Created: <span> {{item.created |naturalday | capfirst }}</span></p>
+                        </div>
+                        <a href="{{item.get_absolute_url}}" class="get-in btn">Let's see ...</a>
+                      </div>
+                    </div>
+
+                  {% endfor %}
+
+                  <div class="post">
+                    <div class="post-img">
+                      <img src="rect16.png" alt="">
+                    </div>
+
+                    <div class="post-info">
+                      <p class="title">This is th titlte of this post and it is very awesome</p>
+                      <div class="date">
+                        <p class="created">created: <span> july 15, 2022</span></p>
+                        <p class="updated">updated: <span> july 15, 2022</span></p>
+                      </div>
+                      <a href="#" class="get-in btn">What can be ...</a>
+                    </div>
+                  </div>
+
+                  <div class="post">
+                    <div class="post-img">
+                      <img src="rect16.png" alt="">
+                    </div>
+
+                    <div class="post-info">
+                      <p class="title">This is th titlte of this post and it is very awesome</p>
+                      <div class="date">
+                        <p class="created">created: <span> july 15, 2022</span></p>
+                        <p class="updated">updated: <span> july 15, 2022</span></p>
+                      </div>
+                      <a href="#" class="get-in btn">What can be ...</a>
+                    </div>
+                  </div>
+
+                  <div class="post">
+                    <div class="post-img">
+                      <img src="rect16.png" alt="">
+                    </div>
+
+                    <div class="post-info">
+                      <p class="title">This is th titlte of this post and it is very awesome</p>
+                      <div class="date">
+                        <p class="created">created: <span> july 15, 2022</span></p>
+                        <p class="updated">updated: <span> july 15, 2022</span></p>
+                      </div>
+                      <a href="#" class="get-in btn">What can be ...</a>
+                    </div>
+                  </div>
+                  
+    
+                </div>
+                
+            </div>
+
+
+{% endblock body %}

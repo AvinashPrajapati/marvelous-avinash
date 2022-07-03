@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/baseStyle.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    {% block linkInHead %}
+    {% endblock linkInHead %}
+</head>
+<style>
+    body{
+        background-color: rgb(25, 31, 46);
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<body >
+    <div class="main" id="particles-js">
+      <div class="wrapper">
+
+
+        
+          <div class="main-box">
+            <div class="logo-box common" style="margin-bottom: 5px !important;">
+
+                <div class="logo lg">
+                  <a href="{% url 'avinash-portfolio' %}">
+                    <p>Mr. Avinash</p>
+                    <p>Portfolio</p>
+                  </a>
+                </div>
+
+              <div class="navigation lg">
+                <a href="{% url 'tutorials:listpage' list_url='project' %}" class="btn">Projects</a>
+                <a href="{% url 'tutorials:listpage' list_url='experiment' %}" class="btn">Experiments</a>
+                <a href="{% url 'tutorials:listpage' list_url='tutorial' %}" class="btn">Tutorials</a>
+                <a href="{% url 'get-in-touch' %}" class="btn">Get in Touch</a>
+              </div>
+
+              <div class="logo sm my-image">
+                <div class="logo-img">
+                  <a href="{% url 'avinash-portfolio' %}"><img src="{% static 'img/profile_id.png' %}" alt=""></a>
+                </div>
+              </div>
+
+              <div class="navigation sm-nav sm">
+                <a href="{% url 'tutorials:listpage' list_url='project' %}" class="btn" title="Projects"><i class="fa fa-pencil-square-o" aria-hidden="true" style="color: greenyellow;"></i></a>
+                <a href="{% url 'tutorials:listpage' list_url='experiment' %}" class="btn" title="Experiments"><i class="fa fa-flask" aria-hidden="true" style="color: rgb(243, 95, 95);"></i></a>
+                <a href="{% url 'tutorials:listpage' list_url='tutorial' %}" class="btn" title="Tutorials"><i class="fa fa-book" aria-hidden="true" style="color: rgb(157, 96, 96);"></i></a>
+                <a href="{% url 'get-in-touch' %}" class="btn" title="Get in Touch"><i class="fa fa-plug" aria-hidden="true" style="color: rgb(13, 167, 194);"></i></a>
+              </div>
+
+            </div>
+
+            <div class="search-box common">
+              <form action="{% url 'tutorials:search' %}" method="GET">
+                <input type="text" name="q" id="search" placeholder="Search the Content">
+                <button type="submit">🔍</button>
+              </form>
+            </div>
+
+
+            {% block body %}
+            {% endblock body %}
+
+
+            <div class="footer-box common">
+              <p>Copywrite avinash 2021</p>
+            </div>
+            
+          </div>
+
+
+      </div>
+    </div>
+
+{% block jsScript %}
+{% endblock jsScript %}
+<script src="{% static 'js/particles.js' %}"></script>
+<script src="{% static 'js/app.js' %}"></script>
+<script src="{% static 'js/particle_support.js' %}"></script>
+</body>
+</html>

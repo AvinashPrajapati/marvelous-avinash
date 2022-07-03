@@ -1,0 +1,30 @@
+ .left-box{
+    width: 98%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 5px;
+    z-index: 10;
+ }
+ .form form{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 25px;
+ }
+ .form label{
+    color: #fff;
+    margin-right: 20px;
+ }
+ .form button:hover{
+    cursor: pointer;
+ }
+ .form .button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+ }

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block linkInHead %}
+<link rel="stylesheet" href="{% static 'chat/css/suscribe.css' %}">
+{% endblock linkInHead %}
+
+{% block body %}
+            </div>
+            <div class="nav-box common">
+              <div class="next">
+                <p style="font-weight:bold;">Resend / Recover token for Email ...</p>
+              </div>
+                
+            </div>
+            <div class="content-box common">
+              <div class="left-box">
+                <div class="form">
+                  <form method="post">
+                    {% csrf_token %}
+                    <div class="name button">
+                      <label for="email">Enter Email :</label>
+                      <input type="email" name="email" id="email">
+                    </div>
+
+                    <div class="button">
+                      <a href="{% url 'chat:verification' %}" class="btn" style="background-color: purple;">← Back</a>
+                      <button type="submit" class="btn" style="background-color: orange;">Resend</button>
+                      <button type="submit" class="btn" style="background-color: greenyellow;color: black;">Recover</button>
+                    </div>
+                  </form>
+                </div>
+
+                <div class="errors">
+                  {% if messages %}
+                    {% for message in messages %}
+                    <p {% if message.tags %} class="{{ message.tags }}" {% endif %}
+                      style="font-size: small;font-weight: bold;">{{ message }}</p>
+                    {% endfor %}
+                  {% endif %}
+                </div>
+  
+              </div>
+
+                
+            </div>
+
+
+{% endblock body %}
